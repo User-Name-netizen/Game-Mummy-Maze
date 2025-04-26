@@ -19,7 +19,6 @@ def load_images():
     player_path = os.path.join(BASE_PATH, "player")
     images["player"] = {}
     directions = ["up", "down", "left", "right"]
-    # Map the directions to the actual file names
     player_sprite_sheets = {
         "up": "move_up.png",
         "down": "move_down.png",
@@ -35,7 +34,6 @@ def load_images():
             try:
                 if os.path.exists(file_path):
                     sprite_sheet = pygame.image.load(file_path)
-                    # Assuming each sprite sheet has 5 frames (as seen in the image)
                     frames = split_sprite_sheet(sprite_sheet, sprite_sheet.get_width() // 5, 5)
                     images["player"][direction].extend(frames)
                 else:
@@ -59,7 +57,6 @@ def load_images():
     mummy_path = os.path.join(BASE_PATH, "mummy")
     images["mummy"] = {}
     colors = ["white", "red"]
-    # Map colors and directions to actual file names
     mummy_sprite_sheets = {
         "white_up": "whiteup.png",
         "white_down": "whitedown.png",
@@ -81,7 +78,6 @@ def load_images():
                 try:
                     if os.path.exists(file_path):
                         sprite_sheet = pygame.image.load(file_path)
-                        # Assuming each sprite sheet has 5 frames
                         frames = split_sprite_sheet(sprite_sheet, sprite_sheet.get_width() // 5, 5)
                         images["mummy"][key].extend(frames)
                     else:
@@ -106,13 +102,12 @@ def load_images():
     # Load Scorpion images
     scorpion_path = os.path.join(BASE_PATH, "scorpion")
     images["scorpion"] = {}
-    # Map colors and directions to actual file names
     scorpion_sprite_sheets = {
         "white_up": "scorpion_white_up.png",
         "white_down": "scorpion_white_down.png",
         "white_left": "scorpion_white_left.png",
         "white_right": "scorpion_white_right.png",
-        "red_up": "scorpion_red_up.png",
+        "redthe red_up": "scorpion_red_up.png",
         "red_down": "scorpion_red_down.png",
         "red_left": "scorpion_red_left.png",
         "red_right": "scorpion_red_right.png"
@@ -128,7 +123,6 @@ def load_images():
                 try:
                     if os.path.exists(file_path):
                         sprite_sheet = pygame.image.load(file_path)
-                        # Assuming each sprite sheet has 5 frames
                         frames = split_sprite_sheet(sprite_sheet, sprite_sheet.get_width() // 5, 5)
                         images["scorpion"][key].extend(frames)
                     else:
@@ -150,7 +144,7 @@ def load_images():
                 for frame in images["scorpion"][key]:
                     frame.fill((255, 0, 0))
     
-    # Load other images (unchanged)
+    # Load other images
     try:
         images["trap_skull"] = pygame.image.load(os.path.join(BASE_PATH, "trap_skull.png"))
         images["key"] = pygame.image.load(os.path.join(BASE_PATH, "key6.png"))
@@ -171,6 +165,7 @@ def load_images():
         images["menu_map"] = pygame.image.load(os.path.join(BASE_PATH, "menu_map.png"))
         images["options"] = pygame.image.load(os.path.join(BASE_PATH, "options.png"))
         images["icon"] = pygame.image.load(os.path.join(BASE_PATH, "icon.png"))
+        images["game_over"] = pygame.image.load(os.path.join(BASE_PATH, "game_over.png"))  # Load game over image
     except pygame.error as e:
         print(f"Error loading image: {e}")
     
